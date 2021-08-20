@@ -10,4 +10,4 @@ EditorBuildSettings:
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: bddeff4d3d69e8a4a81df2432c552c46, type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ed7479224cef2dc4eb176efde6cc96c3, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 3f41c290a79035642a7e546a07a46a91, type: 2}
