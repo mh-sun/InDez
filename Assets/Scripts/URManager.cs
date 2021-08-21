@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class URManager : MonoBehaviour
 {
-    Stack<int> UndoIndices;
+    Stack<int> UndoIndices = new Stack<int>();
     [SerializeField]
     private Text TempText;
 
