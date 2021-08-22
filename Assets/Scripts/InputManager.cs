@@ -10,21 +10,7 @@ using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
-    /*public GameObject objectToPlace;
-    public GameObject placementIndicator;
-
-    private ARRaycastManager raycastManager;
-    private Pose placementPose;
-    private bool placementPoseIsValid = false;
-
-    void Start()
-    {
-        raycastManager = FindObjectOfType<ARRaycastManager>();
-    }
-
-    */
-
-    //[SerializeField] private GameObject ObjectToPlace;
+    
     [SerializeField]
     private Camera ARCamera;
 
@@ -52,30 +38,34 @@ public class InputManager : MonoBehaviour
             Application.Quit();
         }
 
-        touch = Input.GetTouch(0);
-
-        if (Input.touchCount < 0 || touch.phase != TouchPhase.Began)
+        if (Input.touchCount > 0)
         {
-            return;
+            touch = Input.GetTouch(0);
+
+            if (touch.phase != TouchPhase.Began)
+            {
+                return;
+            }
+            if (IsPointerOverUI(touch))
+                return;
+
+            if (text.text == "X")
+            {
+                return;
+            }
+
+            Ray ray = ARCamera.ScreenPointToRay(touch.position);
+            if (raycastManager.Raycast(ray, hits))
+            {
+                Pose pose = hits[0].pose;
+                GameObject spawnedObject = Instantiate(DataHandler.Instance.furniture, pose.position, pose.rotation);
+
+                CurrentIndex = spawnedObjects.Count;
+
+                spawnedObjects.Add(spawnedObject);
+            }
         }
-        if (IsPointerOverUI(touch))
-            return;
-
-        if (text.text == "X")
-        {
-            return;
-        }    
-
-        Ray ray = ARCamera.ScreenPointToRay(touch.position);
-        if (raycastManager.Raycast(ray, hits))
-        {
-            Pose pose = hits[0].pose;
-            GameObject spawnedObject = Instantiate(DataHandler.Instance.furniture, pose.position, pose.rotation);
-            
-            CurrentIndex = spawnedObjects.Count;
-
-            spawnedObjects.Add(spawnedObject);
-        }
+        
 
         
     }
