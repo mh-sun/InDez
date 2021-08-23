@@ -27,9 +27,4 @@ public class SpawnManager : MonoBehaviour
             
 
     }
-
-    void Update()
-    {
-        
-    }
 }

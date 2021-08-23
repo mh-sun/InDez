@@ -12,23 +12,24 @@ public class URManager : MonoBehaviour
 
     private void Update()
     {
-        TempText.text = InputManager.CurrentIndex.ToString();
+        TempText.text = SessionData.CurrentIndex.ToString();
     }
 
     public void UndoObject()
     {
-        if (InputManager.CurrentIndex < 0) 
+        Debug.Log(DataHandler.Instance.furniture.name);
+        if (SessionData.CurrentIndex < 0) 
             return;
 
-        UndoIndices.Push(InputManager.CurrentIndex);
+        UndoIndices.Push(SessionData.CurrentIndex);
 
-        InputManager.spawnedObjects[InputManager.CurrentIndex].SetActive(false);
+        SessionData.SpawnObject[SessionData.CurrentIndex].SetActive(false);
 
-        for(int i= InputManager.CurrentIndex; i>=0;i--)
+        for(int i= SessionData.CurrentIndex; i>=0;i--)
         {
-            if (InputManager.spawnedObjects[i].activeSelf)
+            if (SessionData.SpawnObject[i].activeSelf)
             {
-                InputManager.CurrentIndex = i;
+                SessionData.CurrentIndex = i;
                 break;
             }
         }
@@ -40,9 +41,9 @@ public class URManager : MonoBehaviour
             return;
 
         int PopIndex = UndoIndices.Pop();
-        InputManager.spawnedObjects[PopIndex].SetActive(true);
+        SessionData.SpawnObject[PopIndex].SetActive(true);
 
-        InputManager.CurrentIndex = PopIndex;
+        SessionData.CurrentIndex = PopIndex;
     }
 
 }

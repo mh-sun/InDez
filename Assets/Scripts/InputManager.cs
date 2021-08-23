@@ -10,7 +10,7 @@ using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
-    
+    public static string sign;
     [SerializeField]
     private Camera ARCamera;
 
@@ -24,8 +24,9 @@ public class InputManager : MonoBehaviour
     private GameObject SRPanel;
 
 
-    public static int CurrentIndex=-1;
-    public static List<GameObject> spawnedObjects = new List<GameObject>();
+    /*public static int CurrentIndex=-1;
+    public static List<GameObject> spawnedObjects = new List<GameObject>();*/
+
 
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
@@ -33,6 +34,8 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
+        sign = text.text;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
@@ -49,10 +52,14 @@ public class InputManager : MonoBehaviour
             if (IsPointerOverUI(touch))
                 return;
 
-            if (text.text == "X")
+            if (text != null)
             {
-                return;
+                if (text.text == "X")
+                {
+                    return;
+                }
             }
+            else return;
 
             Ray ray = ARCamera.ScreenPointToRay(touch.position);
             if (raycastManager.Raycast(ray, hits))
@@ -60,13 +67,11 @@ public class InputManager : MonoBehaviour
                 Pose pose = hits[0].pose;
                 GameObject spawnedObject = Instantiate(DataHandler.Instance.furniture, pose.position, pose.rotation);
 
-                CurrentIndex = spawnedObjects.Count;
+                SessionData.CurrentIndex = SessionData.SpawnObject.Count;
 
-                spawnedObjects.Add(spawnedObject);
+                SessionData.SpawnObject.Add(spawnedObject);
             }
         }
-        
-
         
     }
 
