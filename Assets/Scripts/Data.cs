@@ -23,9 +23,13 @@ public class Data
     }
     private void Loadobjects()
     {
-        foreach(GameObject gameObject in SessionData.SpawnObject)
+        objects = new List<string>();
+        for(int i = 0; i < SessionData.SpawnObject.Count; i++)
         {
-            objects.Add(gameObject.name);
+            if (SessionData.SpawnObject[i].activeSelf)
+            {
+                objects.Add(SessionData.SpawnObject[i].name);
+            }
         }
     }
 }

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class SaveObjects
+public class SaveObjects : MonoBehaviour
 {
     Data userdata;
-    public static string file = "userData.pera";
+    public static string file = "userData.txt";
     public void saveObject()
     {
         InstantiateData();
@@ -26,7 +26,8 @@ public class SaveObjects
     private void WriteToFile(string jsonData, string file)
     {
         string path = GetFilePath(file);
-        FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate);
+        Debug.Log(path);
+        FileStream fileStream = new FileStream(path, FileMode.Create);
         
         using(StreamWriter writer = new StreamWriter(fileStream))
         {

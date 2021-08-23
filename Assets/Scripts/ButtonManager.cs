@@ -27,7 +27,6 @@ public class ButtonManager : MonoBehaviour
             
         else
             transform.localScale = Vector3.one * normalIndex;
-
     }
 
     /*private void SelectObject()

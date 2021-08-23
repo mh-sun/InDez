@@ -7,13 +7,6 @@ using UnityEngine.UI;
 public class URManager : MonoBehaviour
 {
     Stack<int> UndoIndices = new Stack<int>();
-    [SerializeField]
-    private Text TempText;
-
-    private void Update()
-    {
-        TempText.text = SessionData.CurrentIndex.ToString();
-    }
 
     public void UndoObject()
     {
