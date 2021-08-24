@@ -8,17 +8,57 @@ public class PreviewShot : MonoBehaviour
 {
 	[SerializeField]
 	GameObject canvas;
+
+	[SerializeField]
+	GameObject MenuPanel;
+
+	[SerializeField]
+	GameObject Next;
+
+	[SerializeField]
+	GameObject Prev;
+
+
 	string[] files = null;
 	int whichScreenShotIsShown = 0;
 
 	void Start()
 	{
-		files = Directory.GetFiles(Application.persistentDataPath + "/Screenshots/", "*.png");
+		files = Directory.GetFiles(Application.persistentDataPath + "/", "*.png");
 		if (files.Length > 0)
 		{
 			GetPictureAndShowIt();
 		}
+		canvas.SetActive(false);
 	}
+
+	public void ChangePreviewPanel()
+    {
+		files = Directory.GetFiles(Application.persistentDataPath + "/", "*.png");
+		if (files.Length > 0)
+		{
+			Next.SetActive(true);
+			Prev.SetActive(true);
+			GetPictureAndShowIt();
+		}
+        else
+        {
+			Next.SetActive(false);
+			Prev.SetActive(false);
+        }
+		if (canvas.activeSelf)
+        {
+			canvas.SetActive(false);
+			MenuPanel.SetActive(true);
+
+		}
+		else
+        {
+			canvas.SetActive(true);
+			MenuPanel.SetActive(false);
+
+		}
+    }
 
 	void GetPictureAndShowIt()
 	{

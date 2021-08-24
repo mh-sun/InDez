@@ -10,7 +10,7 @@ public class URManager : MonoBehaviour
 
     public void UndoObject()
     {
-        Debug.Log(DataHandler.Instance.furniture.name);
+        
         if (SessionData.CurrentIndex < 0) 
             return;
 

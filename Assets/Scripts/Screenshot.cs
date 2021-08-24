@@ -14,15 +14,19 @@ public class Screenshot : MonoBehaviour
 	{
 
 		//string folderPath = System.IO.Directory.GetCurrentDirectory() + "/Screenshots/";
-		string folderPath = Application.persistentDataPath + "/Screenshots/";
-		Debug.Log(folderPath);
+		/*string folderPath = Application.persistentDataPath + "/";
+		Debug.LogWarning(folderPath);
 
 		if (!Directory.Exists(folderPath))
-			Directory.CreateDirectory(folderPath);
+			Directory.CreateDirectory(folderPath);*/
 
 		string timeStamp = System.DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss");
 		string fileName = "Screenshot_" + timeStamp + ".png";
-		ScreenCapture.CaptureScreenshot(Path.Combine(folderPath, fileName));
+		string pathToSave = fileName;
+/*		Debug.LogWarning("Folder path :"+folderPath);
+*/		Debug.LogWarning("file name :" + fileName);
+
+		ScreenCapture.CaptureScreenshot(pathToSave);
 		Debug.Log("SS Taken");
 		Debug.Log(fileName);
 		yield return new WaitForEndOfFrame();
