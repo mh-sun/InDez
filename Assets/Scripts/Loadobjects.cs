@@ -21,7 +21,6 @@ public class Loadobjects
         else
         {
             JsonUtility.FromJsonOverwrite(jsonData, userData);
-            Debug.Log(userData.objects[0]);
             return userData;
         }
     }

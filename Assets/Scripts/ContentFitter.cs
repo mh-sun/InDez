@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class ContentFitter : MonoBehaviour
+public class ContentFitter
 {
-    private void Start()
+    static void Main(string[] args)
     {
-        
+        Console.WriteLine(args.Length);
     }
 }

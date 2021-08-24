@@ -8,8 +8,7 @@ public class ButtonManager : MonoBehaviour
 {
     private Button button;
     public GameObject furniture;
-    private int transpositonIndex = 3;
-    private int tempPositionIndex = 2;
+    private int transpositonIndex = 2;
     private int normalIndex = 1;
 
     void Start()
@@ -23,7 +22,7 @@ public class ButtonManager : MonoBehaviour
         {
             if (SelectForLoad.Instance.OnEntered(gameObject))
             {
-                transform.localScale = Vector3.one * tempPositionIndex;
+                transform.localScale = Vector3.one * transpositonIndex;
                 DataHandler.Instance.furniture = furniture;
             }
 

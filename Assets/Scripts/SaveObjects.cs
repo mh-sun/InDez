@@ -12,8 +12,10 @@ public class SaveObjects : MonoBehaviour
     {
         InstantiateData();
         string jsonData = JsonUtility.ToJson(userdata);
+        Debug.LogWarning(jsonData);
         WriteToFile(jsonData, file);
     }
+
 
     private void InstantiateData()
     {
@@ -21,6 +23,14 @@ public class SaveObjects : MonoBehaviour
             userdata = new Data();
         else userdata = new Data(SessionData.UserName);
 
+        List<string> temp = userdata.objects;
+
+        for(int i = 0; i < temp.Count; i++)
+        {
+            temp[i] = temp[i].Replace("(Clone)", "");
+        }
+
+        userdata.objects = temp;
     }
 
     private void WriteToFile(string jsonData, string file)
