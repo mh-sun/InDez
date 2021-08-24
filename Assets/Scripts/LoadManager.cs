@@ -42,7 +42,15 @@ public class LoadManager : MonoBehaviour
 
     private void IntantiateObjects()
     {
-        objects = loadobjects.loadData().objects;
+        if (loadobjects.loadData() == null)
+        {
+            return;
+        }
+        else
+        {
+            objects = loadobjects.loadData().objects;
+        }
+        
 
         foreach(GameObject gameObject in AllObjects)
         {
