@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
 
 public class DataHandler : MonoBehaviour
 {
+    [SerializeField]
+    ARSession aRSession;
     public GameObject furniture;
     private static DataHandler instance;
     public static DataHandler Instance
@@ -16,5 +19,17 @@ public class DataHandler : MonoBehaviour
             }
             return instance;
         }
+    }
+    
+    public void ResetARSession()
+    {
+        for(int i = 0; i < SessionData.SpawnObject.Count; i++)
+        {
+            Debug.LogWarning(SessionData.SpawnObject.Count);
+            Destroy(SessionData.SpawnObject[i]);
+        }
+        SessionData.SpawnObject = new List<GameObject>();
+        SessionData.CurrentIndex = -1;
+        aRSession.Reset();
     }
 }

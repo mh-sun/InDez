@@ -7,6 +7,7 @@ using UnityEngine.Experimental.XR;
 using System;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
@@ -22,10 +23,6 @@ public class InputManager : MonoBehaviour
 
     [SerializeField]
     private GameObject SRPanel;
-
-
-    /*public static int CurrentIndex=-1;
-    public static List<GameObject> spawnedObjects = new List<GameObject>();*/
 
 
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -84,4 +81,14 @@ public class InputManager : MonoBehaviour
         return raycastResults.Count > 0;
     }
 
+    public void Back()
+    {
+        Debug.LogWarning("Back button Pressed");
+        SceneManager.LoadScene("Choose");
+    }
+    public void Exit()
+    {
+        Debug.LogWarning("Quit button Pressed");
+        Application.Quit();
+    }
 }
