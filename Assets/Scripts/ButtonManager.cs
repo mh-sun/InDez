@@ -14,8 +14,10 @@ public class ButtonManager : MonoBehaviour
     void Start()
     {
         button = GetComponent<Button>();
+        InvokeRepeating("UpdateFractionTime", 0 , 0.1f);
     }
-    private void Update()
+
+    private void UpdateFractionTime()
     {
 
         if (LoadManager.isActive)

@@ -12,7 +12,7 @@ public class ChooseManager : MonoBehaviour
         SceneManager.LoadScene("Login");
 
     }
-    public void Exit()
+    public void quit()
     {
         Debug.LogWarning("Exit button Pressed");
         Application.Quit();
@@ -23,7 +23,7 @@ public class ChooseManager : MonoBehaviour
     }
     public void Office()
     {
-        SceneManager.LoadScene("ApplicationScene");
+        SceneManager.LoadScene("Office");
     }
 
 }

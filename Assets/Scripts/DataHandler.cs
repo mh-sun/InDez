@@ -7,6 +7,10 @@ public class DataHandler : MonoBehaviour
 {
     [SerializeField]
     ARSession aRSession;
+
+    [SerializeField]
+    ARPlaneManager aRPlaneManager;
+
     public GameObject furniture;
     private static DataHandler instance;
     public static DataHandler Instance
@@ -30,6 +34,12 @@ public class DataHandler : MonoBehaviour
         }
         SessionData.SpawnObject = new List<GameObject>();
         SessionData.CurrentIndex = -1;
+
         aRSession.Reset();
+    }
+
+    public void ChangeARState()
+    {
+        aRPlaneManager.enabled = !aRPlaneManager.enabled;
     }
 }

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ExitApplication : MonoBehaviour
 {
     
-
     public void exitApplication()
     {
         Debug.Log("E X I T");

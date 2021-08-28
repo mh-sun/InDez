@@ -422,7 +422,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1b6f54f733fc17544b0be2d502734be7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9efe54d2f7b64c14ebf3e99af0c47197, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -451,7 +451,6 @@ GameObject:
   - component: {fileID: 635419328}
   - component: {fileID: 635419331}
   - component: {fileID: 635419330}
-  - component: {fileID: 635419329}
   m_Layer: 5
   m_Name: RegisterPanel
   m_TagString: Untagged
@@ -473,25 +472,13 @@ RectTransform:
   - {fileID: 1400559244}
   - {fileID: 2010809551}
   m_Father: {fileID: 1912763053}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &635419329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635419327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 736c7514bd4a778439916c142f0ee23a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &635419330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,7 +695,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1158777245}
         m_TargetAssemblyTypeName: ChooseManager, Assembly-CSharp
-        m_MethodName: Exit
+        m_MethodName: quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -811,7 +798,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 3a2d15c98b3dfe443897f79d95b99c10, type: 3}
+    m_Font: {fileID: 12800000, guid: 11023cff37583ac4fb1afe6c03b8e447, type: 3}
     m_FontSize: 50
     m_FontStyle: 1
     m_BestFit: 0
@@ -966,7 +953,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 3a2d15c98b3dfe443897f79d95b99c10, type: 3}
+    m_Font: {fileID: 12800000, guid: 11023cff37583ac4fb1afe6c03b8e447, type: 3}
     m_FontSize: 50
     m_FontStyle: 1
     m_BestFit: 0
@@ -1136,7 +1123,7 @@ RectTransform:
   m_Children:
   - {fileID: 1500589167}
   m_Father: {fileID: 1912763053}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -1450,7 +1437,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 287e60b4bb8b5474d94bd46ef0a2a09d, type: 3}
+    m_Font: {fileID: 12800000, guid: 8532ebc8773a6ed43b426dbf7065d91e, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
@@ -1529,7 +1516,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7c7fda8d5c34bca46bea2ff3f7884f8a, type: 3}
+    m_Font: {fileID: 12800000, guid: 11023cff37583ac4fb1afe6c03b8e447, type: 3}
     m_FontSize: 100
     m_FontStyle: 1
     m_BestFit: 0
@@ -1709,8 +1696,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 635419328}
   - {fileID: 1168308192}
+  - {fileID: 635419328}
   m_Father: {fileID: 491337282}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

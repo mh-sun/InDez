@@ -11,6 +11,9 @@ using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
+    [SerializeField]
+    ARSession aRSession;
+
     public static string sign;
     [SerializeField]
     private Camera ARCamera;
@@ -24,10 +27,32 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private GameObject SRPanel;
 
+    public Slider scaleSlider;
+    public Slider rotateSlider;
+
+    public List<GameObject> gameObjects;
 
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     private Touch touch;
+
+    private void Start()
+    {
+        if (SessionData.UserName == null || SessionData.UserName == "")
+        {
+            foreach(GameObject gameObject in gameObjects)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            foreach (GameObject gameObject in gameObjects)
+            {
+                gameObject.SetActive(true);
+            }
+        }
+    }
 
     private void Update()
     {
@@ -67,6 +92,10 @@ public class InputManager : MonoBehaviour
                 SessionData.CurrentIndex = SessionData.SpawnObject.Count;
 
                 SessionData.SpawnObject.Add(spawnedObject);
+
+                SessionData.SpawnObjectRotaion.Add(rotateSlider.value);
+                SessionData.SpawnObjectScale.Add(scaleSlider.value);
+
             }
         }
         
@@ -84,6 +113,14 @@ public class InputManager : MonoBehaviour
     public void Back()
     {
         Debug.LogWarning("Back button Pressed");
+        for (int i = 0; i < SessionData.SpawnObject.Count; i++)
+        {
+            Debug.LogWarning(SessionData.SpawnObject.Count);
+            Destroy(SessionData.SpawnObject[i]);
+        }
+        SessionData.SpawnObject = new List<GameObject>();
+        SessionData.CurrentIndex = -1;
+        aRSession.Reset();
         SceneManager.LoadScene("Choose");
     }
     public void Exit()

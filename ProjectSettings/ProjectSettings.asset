@@ -21,7 +21,7 @@ PlayerSettings:
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 2
-  m_SplashScreenLogoStyle: 0
+  m_SplashScreenLogoStyle: 1
   m_SplashScreenDrawMode: 1
   m_SplashScreenBackgroundAnimationZoom: 1
   m_SplashScreenLogoAnimationZoom: 0.5
@@ -139,6 +139,8 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 4800000, guid: c9f956787b1d945e7b36e0516201fc76, type: 3}
+  - {fileID: 6671790380670312544, guid: 3f41c290a79035642a7e546a07a46a91, type: 2}
   - {fileID: 11400000, guid: 99ecf35282f4d594cb5c20de012ce6b8, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -789,7 +791,7 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 2
+  activeInputHandler: 0
   cloudProjectId: 036214cf-c557-4e92-a4c1-184c0af1f7f3
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []

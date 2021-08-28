@@ -54,7 +54,7 @@ public class LoginManager : MonoBehaviour
         }
         else if (res == UserPassMissmatched)
         {
-            text.text = "Username or Password mismatched";
+            text.text = "User Already exits";
             panel.SetActive(true);
         }
         else
@@ -145,7 +145,12 @@ public class LoginManager : MonoBehaviour
         return Application.persistentDataPath + "/" + file;
     }
 
-    private void Update()
+    private void Start()
+    {
+        InvokeRepeating("UpdateFractionTime", 0, .5f);
+    }
+
+    private void UpdateFractionTime()
     {
 
         user = username.text;
